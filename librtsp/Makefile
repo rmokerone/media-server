@@ -19,7 +19,7 @@ INCLUDES = . \
 #-------------------------------Source-------------------------------
 #
 #--------------------------------------------------------------------
-SOURCE_PATHS = source source/client source/server
+SOURCE_PATHS = source source/client source/server source/push
 SOURCE_FILES = $(foreach dir,$(SOURCE_PATHS),$(wildcard $(dir)/*.cpp))
 SOURCE_FILES += $(foreach dir,$(SOURCE_PATHS),$(wildcard $(dir)/*.c))
 

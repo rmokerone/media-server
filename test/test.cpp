@@ -101,6 +101,10 @@ int main(int argc, char* argv[])
 	sip_uac_message_test();
 	sip_uas_message_test();
 
+	// rtsp 推流测试
+	//const char* filename = "./8k.wav";
+    //rtsp_push_test("10.10.10.37", "live/test",filename,8000,1);
+
 	//mpeg_ts_dec_test("fileSequence0.ts");
 	//mpeg_ts_test("hevc_aac.ts");
 	//mpeg_ps_dec_test("sjz.ps");
