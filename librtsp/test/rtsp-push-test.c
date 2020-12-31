@@ -12,8 +12,9 @@
 void rtp_receiver_tcp_input(uint8_t channel, const void* data, uint16_t bytes);
 void rtp_receiver_test(socket_t rtp[2], const char* peer, int peerport[2], int payload, const char* encoding);
 void* rtp_receiver_tcp_test(uint8_t interleave1, uint8_t interleave2, int payload, const char* encoding);
-
 int rtsp_addr_is_multicast(const char* ip);
+
+
 
 static const char* sdp = 
 "v=0\n"
@@ -26,7 +27,7 @@ static const char* sdp =
 "b=AS:352\n"
 "a=rtpmap:96 L16/8000/1\n"
 "a=control:streamid=0\n";
-const char* url = "rtsp://10.10.10.37:8554/live/test";
+const char* url;
 const char* session;
 
 
@@ -182,6 +183,8 @@ void rtsp_push_test(const char* host, const char* file,const char* filename,int 
 
 	ctx.transport = RTSP_TRANSPORT_RTP_UDP; // RTSP_TRANSPORT_RTP_TCP
 	snprintf(packet, sizeof(packet), "rtsp://%s/%s", host, file); // url
+	url = strdup(packet);
+	printf("url:%s\n",url);
 
 	socket_init();
 	ctx.socket = socket_connect_host(host, 554, 2000);
