@@ -21,6 +21,7 @@ extern "C" void http_header_content_type_test(void);
 extern "C" void http_header_authorization_test(void);
 extern "C" void http_header_www_authenticate_test(void);
 extern "C" void http_header_auth_test(void);
+extern "C" void rtsp_push_test(const char* host, const char* file,const char* filename,int sample,int channel);
 
 extern "C" void rtsp_example();
 extern "C" void rtsp_push_server();
