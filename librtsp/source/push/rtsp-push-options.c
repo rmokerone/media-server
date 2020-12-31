@@ -51,7 +51,6 @@ int rtsp_push_options_onreply(struct rtsp_push_t* rtsp, void* parser)
 	{
 		methods = http_get_header_by_name(parser, "Public");
 		(void)methods; // TODO: check support methods
-		printf("rtsp_client_options_onreply\n");
 		return 0; // next step
 	}
 	else

@@ -39,7 +39,6 @@ int rtsp_push_announce(struct rtsp_push_t* rtsp, const char* sdp)
 
 	r = snprintf(rtsp->req, sizeof(rtsp->req), sc_format, rtsp->uri, rtsp->cseq++,USER_AGENT, (unsigned int)strlen(sdp), sdp);
 	assert(r > 0 && r < sizeof(rtsp->req));
-    printf("rtsp->param:%s\n",rtsp->param);
 	return r == rtsp->handler.send(rtsp->param, rtsp->uri, rtsp->req, r) ? 0 : -1;
 }
 
@@ -57,7 +56,6 @@ int rtsp_push_announce_onreply(struct rtsp_push_t* rtsp, void* parser)
         session = http_get_header_by_name(parser, "Session");
         rtsp->auth_failed = 0;
         r = rtsp->handler.onannounce(session);
-        printf("rtsp_client_announce_onreply\n");
 	}
     else if(401 == code)
     {

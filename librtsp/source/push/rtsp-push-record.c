@@ -40,8 +40,7 @@ int rtsp_push_record(struct rtsp_push_t *rtsp, const uint64_t *npt, const float 
     r = npt ? snprintf(rtsp->range, sizeof(rtsp->range), "Range: npt=%" PRIu64 ".%" PRIu64 "-\r\n", *npt / 1000, *npt % 1000) : 0;
     if (r < 0 || r >= sizeof(rtsp->range))
 		return -1;
-
-    printf("status rtsp->aggregate 333: %d\n",rtsp->aggregate); 
+        
     if (rtsp->aggregate)
     {
         assert(rtsp->media_count > 0);

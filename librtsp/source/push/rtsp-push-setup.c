@@ -25,7 +25,6 @@ int rtsp_addr_is_multicast(const char* ip);
 static int rtsp_push_media_setup(struct rtsp_push_t* rtsp, int i,const char* session)
 {
 	int len;
-	printf("rtsp->media[i].uri %s\n",rtsp->media[i].uri);
     len = snprintf(rtsp->req, sizeof(rtsp->req), sc_rtsp_setup, rtsp->media[i].uri, rtsp->cseq++, session, USER_AGENT);
 	return len == rtsp->handler.send(rtsp->param, rtsp->media[i].uri, rtsp->req, len) ? 0 : -1;
 }
